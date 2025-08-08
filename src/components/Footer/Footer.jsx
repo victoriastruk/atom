@@ -1,12 +1,6 @@
-import { useState } from 'react';
-import { services, tools, sellers, creatives, atom, legal } from './footerData';
-import styles from './Footer.module.sass';
-
-import facebookIcon from '../assets/staticImages/facebook.svg';
-import twitterIcon from '../assets/staticImages/twitter.svg';
-import instagramIcon from '../assets/staticImages/instagram.svg';
-import linkedinIcon from '../assets/staticImages/linkedin.svg';
-import youtubeIcon from '../assets/staticImages/youtube.svg';
+import { useState } from "react";
+import { services, tools, sellers, creatives, atom, legal } from "./footerData";
+import styles from "./Footer.module.sass";
 
 const Footer = () => {
   const [openSections, setOpenSections] = useState({});
@@ -31,7 +25,7 @@ const Footer = () => {
       </h4>
       <ul
         className={`${styles.accordionContent} ${
-          openSections[keyName] ? styles.open : ''
+          openSections[keyName] ? styles.open : ""
         }`}
       >
         {links.map(({ title, href }, index) => (
@@ -45,15 +39,15 @@ const Footer = () => {
   return (
     <>
       <div className={styles.linksWrapper}>
-        {renderLinks('Services', services, 'services')}
-        {renderLinks('Tools', tools, 'tools')}
+        {renderLinks("Services", services, "services")}
+        {renderLinks("Tools", tools, "tools")}
         <div className={styles.wraperLink}>
-          {renderLinks('Sellers', sellers, 'sellers')}
-          {renderLinks('Creatives', creatives, 'creatives')}
+          {renderLinks("Sellers", sellers, "sellers")}
+          {renderLinks("Creatives", creatives, "creatives")}
         </div>
         <div className={styles.wraperLink}>
-          {renderLinks('Atom', atom, 'atom')}
-          {renderLinks('Legal', legal, 'legal')}
+          {renderLinks("Atom", atom, "atom")}
+          {renderLinks("Legal", legal, "legal")}
         </div>
       </div>
 
@@ -86,27 +80,30 @@ const Footer = () => {
         <ul className={styles.social}>
           <li>
             <a href="#">
-              <img src={facebookIcon} alt="Facebook icon" />
+              <img src="/atom/staticImages/facebook.svg" alt="Facebook icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={twitterIcon} alt="Twitter icon" />
+              <img src="/atom/staticImages/twitter.svg" alt="Twitter icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={instagramIcon} alt="Instagram icon" />
+              <img
+                src="/atom/staticImages/instagram.svg"
+                alt="Instagram icon"
+              />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={linkedinIcon} alt="LinkedIn icon" />
+              <img src="/atom/staticImages/linkedin.svg" alt="LinkedIn icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src={youtubeIcon} alt="Youtube icon" />
+              <img src="/atom/staticImages/youtube.svg" alt="Youtube icon" />
             </a>
           </li>
         </ul>
