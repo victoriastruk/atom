@@ -80,30 +80,30 @@ const Footer = () => {
         <ul className={styles.social}>
           <li>
             <a href="#">
-              <img src="/atom/staticImages/facebook.svg" alt="Facebook icon" />
+              <img src="/staticImages/facebook.svg" alt="Facebook icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/atom/staticImages/twitter.svg" alt="Twitter icon" />
+              <img src="/staticImages/twitter.svg" alt="Twitter icon" />
             </a>
           </li>
           <li>
             <a href="#">
               <img
-                src="/atom/staticImages/instagram.svg"
+                src="/staticImages/instagram.svg"
                 alt="Instagram icon"
               />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/atom/staticImages/linkedin.svg" alt="LinkedIn icon" />
+              <img src="/staticImages/linkedin.svg" alt="LinkedIn icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/atom/staticImages/youtube.svg" alt="Youtube icon" />
+              <img src="/staticImages/youtube.svg" alt="Youtube icon" />
             </a>
           </li>
         </ul>
