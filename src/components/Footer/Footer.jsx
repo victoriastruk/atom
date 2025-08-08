@@ -2,6 +2,12 @@ import { useState } from 'react';
 import { services, tools, sellers, creatives, atom, legal } from './footerData';
 import styles from './Footer.module.sass';
 
+import facebookIcon from '../assets/staticImages/facebook.svg';
+import twitterIcon from '../assets/staticImages/twitter.svg';
+import instagramIcon from '../assets/staticImages/instagram.svg';
+import linkedinIcon from '../assets/staticImages/linkedin.svg';
+import youtubeIcon from '../assets/staticImages/youtube.svg';
+
 const Footer = () => {
   const [openSections, setOpenSections] = useState({});
 
@@ -80,27 +86,27 @@ const Footer = () => {
         <ul className={styles.social}>
           <li>
             <a href="#">
-              <img src="/staticImages/facebook.svg" alt="Facebook icon" />
+              <img src={facebookIcon} alt="Facebook icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/staticImages/twitter.svg" alt="Twitter icon" />
+              <img src={twitterIcon} alt="Twitter icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/staticImages/instagram.svg" alt="Instagram icon" />
+              <img src={instagramIcon} alt="Instagram icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/staticImages/linkedin.svg" alt="LinkedIn icon" />
+              <img src={linkedinIcon} alt="LinkedIn icon" />
             </a>
           </li>
           <li>
             <a href="#">
-              <img src="/staticImages/youtube.svg" alt="Youtube icon" />
+              <img src={youtubeIcon} alt="Youtube icon" />
             </a>
           </li>
         </ul>
