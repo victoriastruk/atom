@@ -1,9 +1,18 @@
-import { useState } from 'react';
-import SearchInput from '../SearchInput/SearchInput';
+import { useState, useEffect } from 'react';
+import MainMenu from '../MainMenu/MainMenu';
 import styles from './RightMenu.module.sass';
 
 const RightMenu = ({ showSearch, setShowSearch }) => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <ul className={styles.icons}>
@@ -69,26 +78,41 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
             <div className={styles.heartIcon}></div>
           </a>
         </li>
-      {/* <div  className={`${styles.menuMobileIcon} ${isMenuOpen ? styles.active : ''}`}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div> */}
+        <div
+          className={`${styles.menuMobileIcon} ${
+            isMobileMenuOpen ? styles.open : ''
+          }`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </ul>
-{/* 
-      <nav className={`${styles.menu} ${isMenuOpen ? styles.open : ''}`}>
+
+      <div
+        className={`${styles.mobileMenu} ${
+          isMobileMenuOpen ? styles.show : ''
+        }`}
+      >
         <ul>
-          <li><a href="#">Головна</a></li>
-          <li><a href="#">Як працює</a></li>
-          <li><a href="#">Про нас</a></li>
-          <li><a href="#">Контакти</a></li>
+          <li>
+            <div className={styles.searchWrapper}>
+              <div className={styles.icon}></div>
+              <input
+                type="text"
+                placeholder="Search Over 300,000+ Premium Names"
+              />
+              <button className={styles.searchBtn}>
+                <span></span>
+              </button>
+            </div>
+          </li>
+          <li>
+            <MainMenu mobile={true} />
+          </li>
         </ul>
-      </nav>
-
-
-      {isMenuOpen && <div className={styles.overlay} onClick={() => setIsMenuOpen(false)} />}  */}
+      </div>
     </>
   );
 };

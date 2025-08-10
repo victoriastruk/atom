@@ -25,19 +25,6 @@ const HowItWorksPage = () => {
         <div className={styles.container}>
           <Header setShowSearch={setShowSearch} showSearch={showSearch} />
         </div>
-        {/* {showSearch && (
-          <>
-            <div
-              className={`${styles.menuOverlay} ${isActive}`}
-              onClick={() => setShowSearch(false)}
-            />
-            <div className={`${styles.searchWidget} ${isActive}`}>
-              <div className={styles.container}>
-                <SearchInput />
-              </div>
-            </div>
-          </>
-        )} */}
       </header>
 
       <div
