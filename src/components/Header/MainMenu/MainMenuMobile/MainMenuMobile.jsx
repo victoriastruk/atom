@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import DomainList from './DomainList/DomainList';
-import SubMenuItem from './SubMenuItem/SubMenuItem';
-import PromoCard from './PromoCard/PromoCard';
+import { useState } from "react";
+import DomainList from "../DomainList/DomainList";
+import SubMenuItem from "../SubMenuItem/SubMenuItem";
+import PromoCard from "../PromoCard/PromoCard";
 import {
   domainList,
   brandingContext,
@@ -10,19 +10,20 @@ import {
   trademarks,
   generatorList,
   aboutList,
-} from './menuData';
-import styles from './MainMenu.module.sass';
+} from "../menuData";
 
-const MainMenu = ({ mobile = false }) => {
+import styles from "./MainMenuMobile.module.sass";
+
+const MainMenuMobile = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const menuItems = [
     {
-      label: 'Domains for Sale',
+      label: "Domains for Sale",
       content: (
         <>
           <ul className={styles.mainLeftLinks}>
@@ -32,7 +33,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/cdm_icon.svg"
                 title="Premium Domain Marketplace"
                 description="Explore 300,000+ expert-curated, brandable domains to elevate your business."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
             <li>
@@ -41,7 +42,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/upm_icon.svg"
                 title="Ultra Premium Marketplace"
                 description="Discover the world’s most coveted and powerful domains for top-tier brands."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
             <li>
@@ -50,7 +51,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/sapphire_icon.svg"
                 title="Sapphire Marketplace"
                 description="Find one-word domains with modern extensions like .ai, .io, and .xyz."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
           </ul>
@@ -59,7 +60,7 @@ const MainMenu = ({ mobile = false }) => {
             title="Top Domain Collections"
             items={domainList}
             bage="Popular"
-            width={'20rem'}
+            width={"20rem"}
           />
 
           <PromoCard
@@ -68,13 +69,13 @@ const MainMenu = ({ mobile = false }) => {
             isImg={true}
             title="Get Started"
             description="Find your perfect domain today and buy instantly in the Atom.com marketplace."
-            mobile={mobile}
+            mobile={true}
           />
         </>
       ),
     },
     {
-      label: 'Naming & Branding',
+      label: "Naming & Branding",
       content: (
         <div className={styles.NamingAndBrand}>
           <div className={styles.mainLeftLinks}>
@@ -82,15 +83,19 @@ const MainMenu = ({ mobile = false }) => {
               href="https://www.atom.com/branding-marketing-naming-contests"
               title="Start a Naming Contest"
               description="Launch a name and domain contest today for 1000s of unique name ideas!"
-              mobile={mobile}
+              mobile={true}
             />
-            <DomainList title="Brading Contest" items={brandingContext} padding={'0'}/>
+            <DomainList
+              title="Branding Contest"
+              items={brandingContext}
+              padding={"0"}
+            />
           </div>
 
           <DomainList
             title="Contest Details"
             items={contestsList}
-            width={'16.25rem'}
+            width={"16.25rem"}
           />
 
           <PromoCard
@@ -98,13 +103,13 @@ const MainMenu = ({ mobile = false }) => {
             image="/staticImages/agency_style.webp"
             title="Agency Style Experience"
             description="Work with a naming and branding expert in our better-than-an-agency managed contests."
-            mobile={mobile}
+            mobile={true}
           />
         </div>
       ),
     },
     {
-      label: 'Research & Testing',
+      label: "Research & Testing",
       content: (
         <div className={styles.researchAndTesting}>
           <div className={styles.mainLeftLinks}>
@@ -113,15 +118,15 @@ const MainMenu = ({ mobile = false }) => {
               icon="/staticImages/audience_research.svg"
               title="Audience Research"
               description="Business decisions are easier with data. Run targeted surveys on just about anything, and get real data fast!"
-              mobile={mobile}
+              mobile={true}
             />
           </div>
-          <DomainList items={researchTesting} columns={2} />
+          <DomainList items={researchTesting} columns={1}/>
         </div>
       ),
     },
     {
-      label: 'Trademarks',
+      label: "Trademarks",
       content: (
         <div className={styles.trademarks}>
           <div className={styles.mainLeftLinks}>
@@ -130,15 +135,15 @@ const MainMenu = ({ mobile = false }) => {
               icon="/staticImages/trademark_filling.svg"
               title="Trademark Filing"
               description="Protect your brand with trademark services spanning search to filing."
-              mobile={mobile}
+              mobile={true}
             />
           </div>
-          <DomainList items={trademarks} />
+          <DomainList items={trademarks} padding={'0'}/>
         </div>
       ),
     },
     {
-      label: 'Resources',
+      label: "Resources",
       content: (
         <>
           <ul className={styles.mainLeftLinks}>
@@ -148,17 +153,17 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/bsg.svg"
                 title="Business Name Generator"
                 description="Be inspired by our AI-powered generators! Get 1000s of name ideas in seconds."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
-            <DomainList items={generatorList}  padding="0px 0px 15px 80px"/>
+            <DomainList items={generatorList} padding="0px 0px 5px 0px" />
             <li>
               <SubMenuItem
                 href="https://www.atom.com/logo-maker"
                 icon="/staticImages/ai.svg"
                 title="AI Logo Maker"
                 description="Create eye-catching logos in minutes and make your brand memorable."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
           </ul>
@@ -170,7 +175,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/alignment_tool.svg"
                 title="Brand Alignment Tool"
                 description="Make the right naming choice with our AI-powered brand alignment tool."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
             <li>
@@ -179,7 +184,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/atom_radar.svg"
                 title="AtomRadar"
                 description="Exclusive naming and branding research from Atom.com."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
             <li>
@@ -188,7 +193,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/brand_book.svg"
                 title="Build a Brandbook"
                 description="Create a free brand bible in minutes using our AI-assisted builder."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
             <li>
@@ -197,7 +202,7 @@ const MainMenu = ({ mobile = false }) => {
                 icon="/staticImages/start_up.svg"
                 title="Startup Toolkit"
                 description="Explore apps and services to help your startup thrive."
-                mobile={mobile}
+                mobile={true}
               />
             </li>
           </ul>
@@ -206,7 +211,7 @@ const MainMenu = ({ mobile = false }) => {
             title="Atom.com"
             items={aboutList}
             bage="AtomConnect"
-            width={'280px'}
+            width={"280px"}
           />
 
           <PromoCard
@@ -214,7 +219,7 @@ const MainMenu = ({ mobile = false }) => {
             image="/staticImages/domain_score.svg"
             title="AI Domain Appraisal Tool"
             description="Discover the value of your domains, based on 50+ data points and powered by effective AI."
-            mobile={mobile}
+            mobile={true}
           />
         </>
       ),
@@ -222,26 +227,50 @@ const MainMenu = ({ mobile = false }) => {
   ];
 
   return (
-    <ul
-      className={`${styles.mainMenu} ${mobile ? styles.mobileMenuStyle : ''}`}
-    >
-      {menuItems.map((item, index) => (
-        <li
-          key={index}
-          className={mobile && openIndex === index ? styles.open : ''}
-        >
-          <div
-            className={styles.noLink}
-            onClick={mobile ? () => handleToggle(index) : undefined}
-          >
-            {item.label}
-            {mobile && <span className={styles.arrow}></span>}
+    <div className={styles.mobileMenu}>
+      <ul>
+        <li>
+          <div className={styles.searchWrapper}>
+            <div className={styles.icon}></div>
+            <input
+              type="text"
+              placeholder="Search Over 300,000+ Premium Names"
+            />
+            <button className={styles.searchBtn}>
+              <span></span>
+            </button>
           </div>
-          <div className={styles.subMenu}>{item.content}</div>
         </li>
-      ))}
-    </ul>
+        {menuItems.map((item, index) => (
+          <li
+            key={index}
+            className={`${styles.menuItem} ${
+              openIndex === index ? styles.open : ""
+            }`}
+          >
+            <button
+              className={styles.noLink}
+              onClick={() => handleToggle(index)}
+            >
+              <span className={styles.title}>{item.label}</span>
+              <span
+                className={`${styles.arrow} ${
+                  openIndex === index ? styles.rotate : ""
+                }`}
+              ></span>
+            </button>
+            <div
+              className={`${styles.subMenu} ${
+                openIndex === index ? styles.show : ""
+              }`}
+            >
+              {item.content}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default MainMenu;
+export default MainMenuMobile;

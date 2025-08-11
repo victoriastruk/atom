@@ -1,7 +1,7 @@
-import MainMenu from './MainMenu/MainMenu';
-import RightMenu from './RightMenu/RightMenu';
+import MainMenuDesktop from "./MainMenu/MainMenuDesktop/MainMenuDesktop";
+import RightMenu from "./RightMenu/RightMenu";
 
-import styles from './Header.module.sass';
+import styles from "./Header.module.sass";
 
 const Header = ({ showSearch, setShowSearch }) => {
   return (
@@ -16,7 +16,7 @@ const Header = ({ showSearch, setShowSearch }) => {
       </div>
 
       <div className={styles.headerMid}>
-        <MainMenu />
+        <MainMenuDesktop />
       </div>
 
       <div className={styles.headerRight}>

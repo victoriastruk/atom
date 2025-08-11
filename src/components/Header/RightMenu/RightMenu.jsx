@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MainMenu from "../MainMenu/MainMenu";
+import MainMenuMobile from "../MainMenu/MainMenuMobile/MainMenuMobile";
 import styles from "./RightMenu.module.sass";
 
 const RightMenu = ({ showSearch, setShowSearch }) => {
@@ -12,7 +12,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
       document.body.style.overflow = "";
     }
   }, [isMobileMenuOpen]);
-  
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 991 && isMobileMenuOpen) {
@@ -23,6 +23,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isMobileMenuOpen]);
+
   return (
     <>
       <ul className={styles.icons}>
@@ -88,7 +89,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
             <div className={styles.heartIcon}></div>
           </a>
         </li>
-        <div
+        <li
           className={`${styles.menuMobileIcon} ${
             isMobileMenuOpen ? styles.open : ""
           }`}
@@ -97,7 +98,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </li>
       </ul>
 
       <div
@@ -105,23 +106,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
           isMobileMenuOpen ? styles.show : ""
         }`}
       >
-        <ul>
-          <li>
-            <div className={styles.searchWrapper}>
-              <div className={styles.icon}></div>
-              <input
-                type="text"
-                placeholder="Search Over 300,000+ Premium Names"
-              />
-              <button className={styles.searchBtn}>
-                <span></span>
-              </button>
-            </div>
-          </li>
-          <li>
-            <MainMenu mobile={true} />
-          </li>
-        </ul>
+        <MainMenuMobile />
       </div>
     </>
   );
