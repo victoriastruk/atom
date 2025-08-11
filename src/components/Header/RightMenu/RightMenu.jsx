@@ -1,18 +1,28 @@
-import { useState, useEffect } from 'react';
-import MainMenu from '../MainMenu/MainMenu';
-import styles from './RightMenu.module.sass';
+import { useState, useEffect } from "react";
+import MainMenu from "../MainMenu/MainMenu";
+import styles from "./RightMenu.module.sass";
 
 const RightMenu = ({ showSearch, setShowSearch }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
   }, [isMobileMenuOpen]);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 991 && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
 
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMobileMenuOpen]);
   return (
     <>
       <ul className={styles.icons}>
@@ -80,7 +90,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
         </li>
         <div
           className={`${styles.menuMobileIcon} ${
-            isMobileMenuOpen ? styles.open : ''
+            isMobileMenuOpen ? styles.open : ""
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -92,7 +102,7 @@ const RightMenu = ({ showSearch, setShowSearch }) => {
 
       <div
         className={`${styles.mobileMenu} ${
-          isMobileMenuOpen ? styles.show : ''
+          isMobileMenuOpen ? styles.show : ""
         }`}
       >
         <ul>
