@@ -1,3 +1,5 @@
+// $header-height-tablet: 138px
+// $header-height-mobile: 153px
 .icons
    display: flex
    gap:25px
@@ -251,6 +253,7 @@
    max-width: 800px
    margin: 0 0 16px 0
    border-bottom: 1px solid #edeff3
+   border-top: 1px solid #edeff3
    .icon
       background-image: url(/staticImages/icons/search.svg)
       background-repeat: no-repeat
@@ -312,6 +315,9 @@
 
    .mobileMenu
       width: 50%
+      height: calc(100vh - 138px)
+      &.show
+         top: 138px
 
 @media screen and (max-width: 776px) 
    .menuMobileIcon
@@ -319,7 +325,9 @@
       
    .mobileMenu
       width: 90%
-      height: 81%
+      height: calc(100vh - 140px)
+      &.show
+         top: 140px
    .searchWrapper
       .searchBtn
          background: #ff6955
